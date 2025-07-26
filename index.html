@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoleStyle - Premium Shoe Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1f2937',
+                        secondary: '#f59e0b',
+                        accent: '#ef4444'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-shoe-prints text-3xl text-secondary"></i>
+                    <h1 class="text-2xl font-bold text-primary">SoleStyle</h1>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-secondary transition-colors">Home</a>
+                    <a href="#products" class="text-gray-700 hover:text-secondary transition-colors">Products</a>
+                    <a href="#about" class="text-gray-700 hover:text-secondary transition-colors">About</a>
+                    <a href="#contact" class="text-gray-700 hover:text-secondary transition-colors">Contact</a>
+                </nav>
+
+                <!-- Search and Cart -->
+                <div class="flex items-center space-x-4">
+                    <div class="relative hidden sm:block">
+                        <input type="text" id="searchInput" placeholder="Search shoes..." 
+                               class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                    <button id="cartToggle" class="relative p-2 text-gray-700 hover:text-secondary transition-colors">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-accent text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </button>
+                    <button id="mobileMenuToggle" class="md:hidden p-2 text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <input type="text" placeholder="Search shoes..." 
+                           class="mb-3 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                    <a href="#home" class="text-gray-700 hover:text-secondary py-2">Home</a>
+                    <a href="#products" class="text-gray-700 hover:text-secondary py-2">Products</a>
+                    <a href="#about" class="text-gray-700 hover:text-secondary py-2">About</a>
+                    <a href="#contact" class="text-gray-700 hover:text-secondary py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-r from-primary to-gray-800 text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h2 class="text-5xl lg:text-6xl font-bold mb-6">Step Into <span class="text-secondary">Style</span></h2>
+                    <p class="text-xl mb-8 text-gray-300">Discover our premium collection of shoes that combine comfort, style, and quality. From casual sneakers to elegant dress shoes.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="bg-secondary hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                            Shop Now
+                        </button>
+                        <button class="border-2 border-white hover:bg-white hover:text-primary text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                            View Collection
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <img src="/placeholder.svg?height=500&width=600" alt="Hero Shoes" class="w-full h-auto rounded-lg shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold text-center mb-12 text-primary">Shop by Category</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="group cursor-pointer transform hover:scale-105 transition-transform">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg">
+                        <img src="/placeholder.svg?height=300&width=400" alt="Sneakers" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h4 class="text-white text-2xl font-bold">Sneakers</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="group cursor-pointer transform hover:scale-105 transition-transform">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg">
+                        <img src="/placeholder.svg?height=300&width=400" alt="Dress Shoes" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h4 class="text-white text-2xl font-bold">Dress Shoes</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="group cursor-pointer transform hover:scale-105 transition-transform">
+                    <div class="relative overflow-hidden rounded-lg shadow-lg">
+                        <img src="/placeholder.svg?height=300&width=400" alt="Boots" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h4 class="text-white text-2xl font-bold">Boots</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row justify-between items-center mb-12">
+                <h3 class="text-3xl font-bold text-primary mb-4 lg:mb-0">Our Products</h3>
+                
+                <!-- Filters -->
+                <div class="flex flex-wrap gap-4">
+                    <select id="categoryFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                        <option value="">All Categories</option>
+                        <option value="sneakers">Sneakers</option>
+                        <option value="dress">Dress Shoes</option>
+                        <option value="boots">Boots</option>
+                        <option value="casual">Casual</option>
+                    </select>
+                    <select id="priceFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                        <option value="">All Prices</option>
+                        <option value="0-50">$0 - $50</option>
+                        <option value="50-100">$50 - $100</option>
+                        <option value="100-200">$100 - $200</option>
+                        <option value="200+">$200+</option>
+                    </select>
+                    <select id="sortFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                        <option value="">Sort By</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
+                    <h3 class="text-3xl font-bold mb-6 text-primary">About SoleStyle</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        For over two decades, SoleStyle has been at the forefront of footwear fashion, bringing you the finest collection of shoes from around the world. We believe that the right pair of shoes can transform not just your outfit, but your entire day.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Our commitment to quality, comfort, and style has made us a trusted name in the industry. From the latest sneaker trends to timeless classics, we have something for every step of your journey.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary mb-2">50K+</div>
+                            <div class="text-gray-600">Happy Customers</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary mb-2">1000+</div>
+                            <div class="text-gray-600">Shoe Models</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <img src="/placeholder.svg?height=400&width=500" alt="About Us" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold text-center mb-12 text-primary">Get In Touch</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Contact Information</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-secondary mr-4"></i>
+                            <span>123 Fashion Street, Style City, SC 12345</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-secondary mr-4"></i>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-secondary mr-4"></i>
+                            <span>info@solestyle.com</span>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h5 class="text-lg font-semibold mb-4">Follow Us</h5>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-600 hover:text-secondary text-2xl transition-colors">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-secondary text-2xl transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-secondary text-2xl transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-secondary text-2xl transition-colors">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Name</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Email</label>
+                            <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Message</label>
+                            <textarea rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-secondary hover:bg-yellow-600 text-white py-3 rounded-lg font-semibold transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-shoe-prints text-2xl text-secondary"></i>
+                        <h4 class="text-xl font-bold">SoleStyle</h4>
+                    </div>
+                    <p class="text-gray-300">Your premier destination for quality footwear that combines style, comfort, and durability.</p>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-secondary transition-colors">Home</a></li>
+                        <li><a href="#products" class="text-gray-300 hover:text-secondary transition-colors">Products</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-secondary transition-colors">About</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-secondary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Categories</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Sneakers</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Dress Shoes</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Boots</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Casual</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Newsletter</h5>
+                    <p class="text-gray-300 mb-4">Subscribe to get updates on new arrivals and exclusive offers.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="flex-1 px-4 py-2 rounded-l-lg text-gray-800 focus:outline-none">
+                        <button class="bg-secondary hover:bg-yellow-600 px-4 py-2 rounded-r-lg transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2024 SoleStyle. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cartSidebar" class="fixed right-0 top-0 h-full w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50">
+        <div class="p-6 border-b">
+            <div class="flex items-center justify-between">
+                <h3 class="text-xl font-bold">Shopping Cart</h3>
+                <button id="closeCart" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="cartItems" class="flex-1 overflow-y-auto p-6">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="border-t p-6">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-lg font-semibold">Total:</span>
+                <span id="cartTotal" class="text-xl font-bold text-secondary">$0.00</span>
+            </div>
+            <button class="w-full bg-secondary hover:bg-yellow-600 text-white py-3 rounded-lg font-semibold transition-colors">
+                Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-screen overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold">Product Details</h3>
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div id="modalContent">
+                    <!-- Modal content will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+    <script>
+        // Sample product data
+        const products = [
+            {
+                id: 1,
+                name: "Classic White Sneakers",
+                price: 89.99,
+                category: "sneakers",
+                image: "/placeholder.svg?height=300&width=300",
+                description: "Comfortable and stylish white sneakers perfect for everyday wear.",
+                sizes: ["7", "8", "9", "10", "11", "12"],
+                colors: ["White", "Black", "Gray"]
+            },
+            {
+                id: 2,
+                name: "Leather Dress Shoes",
+                price: 159.99,
+                category: "dress",
+                image: "/placeholder.svg?height=300&width=300",
+                description: "Elegant leather dress shoes for formal occasions.",
+                sizes: ["7", "8", "9", "10", "11", "12"],
+                colors: ["Black", "Brown"]
+            },
+            {
+                id: 3,
+                name: "Hiking Boots",
+                price: 129.99,
+                category: "boots",
+                image: "/placeholder.svg?height=300&width=300",
+                description: "Durable hiking boots for outdoor adventures.",
+                sizes: ["7", "8", "9", "10", "11", "12"],
+                colors: ["Brown", "Black", "Tan"]
+            },
+            {
+                id: 4,
+                name: "Running Shoes",
+                price: 119.99,
+                category: "sneakers",
+                image: "/placeholder.svg?height=300&width=300",
+                description: "High-performance running shoes with excellent cushioning.",
+                sizes: ["7", "8", "9", "10", "11", "12"],
+                colors: ["Blue", "Red", "Black"]
+            },
+            {
+                id: 5,
+                name: "Casual Loafers",
+                price: 79.99,
+                category: "casual",
+                image: "/placeholder.svg?height=300&width=300",
+                description: "Comfortable casual loafers for relaxed occasions.",
+                sizes: ["7", "8", "9", "10", "11", "12"],
+                colors: ["Brown", "Navy", "Black"]
+            },
+            {
+                id: 6,
+                name: "High-Top Sneakers",
+                price: 99.99,
+                category: "sneakers",
+                image: "/placeholder.svg?height=300&width=300",
+                description: "Trendy high-top sneakers with premium materials.",
+                sizes: ["7", "8", "9", "10", "11", "12"],
+                colors: ["White", "Black", "Red"]
+            },
+            {
+                id: 7,
+                name: "Oxford Shoes",
+                price: 179.99,
+                category: "dress",
+                image: "/placeholder.svg?height=300&width=300",
+                description: "Classic Oxford shoes crafted from premium leather.",
+                sizes: ["7", "8", "9", "10", "11", "12"],
+                colors: ["Black", "Brown"]
+            },
+            {
+                id: 8,
+                name: "Combat Boots",
+                price: 149.99,
+                category: "boots",
+                image: "/placeholder.svg?height=300&width=300",
+                description: "Sturdy combat boots with military-inspired design.",
+                sizes: ["7", "8", "9", "10", "11", "12"],
+                colors: ["Black", "Brown"]
+            }
+        ];
+
+        // Shopping cart
+        let cart = [];
+        let filteredProducts = [...products];
+
+        // DOM elements
+        const productGrid = document.getElementById('productGrid');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const cartItems = document.getElementById('cartItems');
+        const cartCount = document.getElementById('cartCount');
+        const cartTotal = document.getElementById('cartTotal');
+        const productModal = document.getElementById('productModal');
+        const modalContent = document.getElementById('modalContent');
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            setupEventListeners();
+        });
+
+        // Render products
+        function renderProducts() {
+            productGrid.innerHTML = '';
+            filteredProducts.forEach(product => {
+                const productCard = createProductCard(product);
+                productGrid.appendChild(productCard);
+            });
+        }
+
+        // Create product card
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300';
+            card.innerHTML = `
+                <div class="relative">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <button class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors">
+                            <i class="far fa-heart text-gray-600"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-lg font-semibold mb-2 text-primary">${product.name}</h4>
+                    <p class="text-gray-600 mb-4 text-sm">${product.description}</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold text-secondary">$${product.price}</span>
+                        <div class="flex space-x-2">
+                            <button onclick="openProductModal(${product.id})" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button onclick="addToCart(${product.id})" class="bg-secondary hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+
+        // Add to cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            
+            updateCartUI();
+            showNotification('Product added to cart!');
+        }
+
+        // Remove from cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        // Update cart UI
+        function updateCartUI() {
+            cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            cartItems.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                const cartItem = document.createElement('div');
+                cartItem.className = 'flex items-center space-x-4 mb-4 p-4 border rounded-lg';
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded">
+                    <div class="flex-1">
+                        <h5 class="font-semibold">${item.name}</h5>
+                        <p class="text-gray-600">$${item.price}</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})" class="bg-gray-200 px-2 py-1 rounded">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})" class="bg-gray-200 px-2 py-1 rounded">+</button>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                cartItems.appendChild(cartItem);
+            });
+            
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Update quantity
+        function updateQuantity(productId, newQuantity) {
+            if (newQuantity <= 0) {
+                removeFromCart(productId);
+            } else {
+                const item = cart.find(item => item.id === productId);
+                if (item) {
+                    item.quantity = newQuantity;
+                    updateCartUI();
+                }
+            }
+        }
+
+        // Open product modal
+        function openProductModal(productId) {
+            const product = products.find(p => p.id === productId);
+            modalContent.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-96 object-cover rounded-lg">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary">${product.name}</h3>
+                        <p class="text-3xl font-bold text-secondary mb-4">$${product.price}</p>
+                        <p class="text-gray-600 mb-6">${product.description}</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Size:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                ${product.sizes.map(size => `
+                                    <button class="border border-gray-300 px-3 py-2 rounded hover:border-secondary hover:text-secondary transition-colors">
+                                        ${size}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Color:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                ${product.colors.map(color => `
+                                    <button class="border border-gray-300 px-3 py-2 rounded hover:border-secondary hover:text-secondary transition-colors">
+                                        ${color}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        <button onclick="addToCart(${product.id}); closeProductModal();" class="w-full bg-secondary hover:bg-yellow-600 text-white py-3 rounded-lg font-semibold transition-colors">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `;
+            productModal.classList.remove('hidden');
+        }
+
+        // Close product modal
+        function closeProductModal() {
+            productModal.classList.add('hidden');
+        }
+
+        // Filter products
+        function filterProducts() {
+            const category = document.getElementById('categoryFilter').value;
+            const priceRange = document.getElementById('priceFilter').value;
+            const sort = document.getElementById('sortFilter').value;
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            
+            filteredProducts = products.filter(product => {
+                const matchesCategory = !category || product.category === category;
+                const matchesSearch = !search || product.name.toLowerCase().includes(search);
+                
+                let matchesPrice = true;
+                if (priceRange) {
+                    const [min, max] = priceRange.split('-').map(p => p.replace('+', ''));
+                    if (max) {
+                        matchesPrice = product.price >= parseInt(min) && product.price <= parseInt(max);
+                    } else {
+                        matchesPrice = product.price >= parseInt(min);
+                    }
+                }
+                
+                return matchesCategory && matchesSearch && matchesPrice;
+            });
+            
+            // Sort products
+            if (sort === 'price-low') {
+                filteredProducts.sort((a, b) => a.price - b.price);
+            } else if (sort === 'price-high') {
+                filteredProducts.sort((a, b) => b.price - a.price);
+            } else if (sort === 'name') {
+                filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+            }
+            
+            renderProducts();
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Cart toggle
+            document.getElementById('cartToggle').addEventListener('click', () => {
+                cartSidebar.classList.remove('translate-x-full');
+                cartOverlay.classList.remove('hidden');
+            });
+            
+            // Close cart
+            document.getElementById('closeCart').addEventListener('click', () => {
+                cartSidebar.classList.add('translate-x-full');
+                cartOverlay.classList.add('hidden');
+            });
+            
+            cartOverlay.addEventListener('click', () => {
+                cartSidebar.classList.add('translate-x-full');
+                cartOverlay.classList.add('hidden');
+            });
+            
+            // Close modal
+            document.getElementById('closeModal').addEventListener('click', closeProductModal);
+            
+            // Mobile menu toggle
+            document.getElementById('mobileMenuToggle').addEventListener('click', () => {
+                const mobileMenu = document.getElementById('mobileMenu');
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Filters
+            document.getElementById('categoryFilter').addEventListener('change', filterProducts);
+            document.getElementById('priceFilter').addEventListener('change', filterProducts);
+            document.getElementById('sortFilter').addEventListener('change', filterProducts);
+            document.getElementById('searchInput').addEventListener('input', filterProducts);
+            
+            // Contact form
+            document.getElementById('contactForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                showNotification('Message sent successfully!');
+                e.target.reset();
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
