@@ -1,7 +1,13 @@
-# Simple-Shoe-Cart-UI
+<img width="1245" height="661" alt="image" src="https://github.com/user-attachments/assets/7257131e-9d9b-46ea-a050-32cce173ceda" /># Simple-Shoe-Cart-UI
 # SoleStyle - Premium Shoe Store Website
 
+<img width="1245" height="661" alt="image" src="https://github.com/user-attachments/assets/76632e78-3a52-4098-9718-94faeb512a29" />
+
+
 A modern, responsive e-commerce website for a premium shoe store built with HTML, CSS (Tailwind), and vanilla JavaScript.
+
+<img width="1245" height="661" alt="image" src="https://github.com/user-attachments/assets/1a1ae104-ce94-4eb1-8a02-d80d4af3624e" />
+
 
 ## 🌟 Features
 
